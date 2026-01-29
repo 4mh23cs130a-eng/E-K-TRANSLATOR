@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: translator
+    runtime: python
+    startCommand: python translator.py
+    buildCommand: pip install -r requirements.txt
