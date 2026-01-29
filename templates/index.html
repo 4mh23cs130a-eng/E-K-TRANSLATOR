@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Kannada Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 English to Kannada Translator</h1>
+            <p>Translate text and listen to pronunciations</p>
+        </div>
+
+        <div class="translator-box">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="language-label">
+                    <h2>English 🇺🇸</h2>
+                </div>
+                <textarea 
+                    id="englishText" 
+                    class="text-input"
+                    placeholder="Enter text to translate..."
+                    rows="5"
+                ></textarea>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="translateText()">
+                        ➜ Translate
+                    </button>
+                    <button class="btn btn-speak" onclick="speakEnglish()">
+                        🔊 Speak English
+                    </button>
+                    <button class="btn btn-clear" onclick="clearEnglish()">
+                        ✕ Clear
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <div class="language-label">
+                    <h2>Kannada ಕನ್ನಡ</h2>
+                </div>
+                <textarea 
+                    id="kannadaText" 
+                    class="text-output"
+                    readonly
+                    rows="5"
+                    placeholder="Translation will appear here..."
+                ></textarea>
+                <div class="button-group">
+                    <button class="btn btn-speak" onclick="speakKannada()">
+                        🔊 Speak Kannada
+                    </button>
+                    <button class="btn btn-copy" onclick="copyToClipboard()">
+                        📋 Copy
+                    </button>
+                    <button class="btn btn-clear" onclick="clearKannada()">
+                        ✕ Clear
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Player Section -->
+        <div class="audio-section" id="audioSection" style="display: none;">
+            <h3>🎵 Audio Playback</h3>
+            <audio id="audioPlayer" controls style="width: 100%; margin-top: 10px;">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="statusMessage" class="status-message"></div>
+
+        <!-- Quick Examples -->
+        <div class="examples-section">
+            <h3>💡 Quick Examples</h3>
+            <div class="examples-grid">
+                <button class="example-btn" onclick="setExample('Hello, how are you?')">
+                    Hello, how are you?
+                </button>
+                <button class="example-btn" onclick="setExample('Good morning')">
+                    Good morning
+                </button>
+                <button class="example-btn" onclick="setExample('Thank you very much')">
+                    Thank you very much
+                </button>
+                <button class="example-btn" onclick="setExample('What is your name?')">
+                    What is your name?
+                </button>
+                <button class="example-btn" onclick="setExample('I love learning languages')">
+                    I love learning languages
+                </button>
+                <button class="example-btn" onclick="setExample('Have a great day')">
+                    Have a great day
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
