@@ -1,10 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask
+import os
 
-app=Flask(__name__)
+app = Flask(__name__)
 
 @app.route('/')
 def hello_word():
-    return render_template('index.html')
+    return "Hello, World!"
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+ app.run(debug=True)
